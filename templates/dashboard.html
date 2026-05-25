@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Resume Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #eef4ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #1f2d3d;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .skills {
+            margin-top: 10px;
+        }
+
+        .skill {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 6px 12px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .recommendation {
+            color: #2d3436;
+            font-style: italic;
+        }
+
+        .header-box {
+            text-align: center;
+            padding: 10px;
+            background: #dfe6e9;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>AI Resume Screening Dashboard</h1>
+
+    <div class="card">
+        <div class="label">Predicted Role</div>
+        <div class="value">{{ result.role }}</div>
+    </div>
+
+    <div class="card">
+        <div class="label">ATS Score</div>
+        <div class="value">{{ result.ats_score }}</div>
+    </div>
+
+    <div class="card">
+        <div class="label">Resume Rank</div>
+        <div class="value">{{ result.rank }}</div>
+    </div>
+
+    <div class="card">
+        <div class="label">Detected Skills</div>
+        <div class="skills">
+            {% for skill in result.skills %}
+                <span class="skill">{{ skill }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="label">AI Recommendation</div>
+        <div class="value recommendation">
+            {{ result.recommendation }}
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
